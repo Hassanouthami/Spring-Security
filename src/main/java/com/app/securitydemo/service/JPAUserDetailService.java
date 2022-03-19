@@ -1,5 +1,5 @@
 package com.app.securitydemo.service;
-
+/*
 import com.app.securitydemo.Entity.User;
 import com.app.securitydemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +19,4 @@ public class JPAUserDetailService implements UserDetailsService {
         User u=user.orElseThrow(()->new UsernameNotFoundException("error"));
         return new SecureUser(u);
     }
-}
+}*/
