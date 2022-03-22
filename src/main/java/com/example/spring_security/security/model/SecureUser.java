@@ -1,6 +1,6 @@
-package com.app.securitydemo.service;
-/*
-import com.app.securitydemo.Entity.User;
+package com.example.spring_security.security.model;
+
+import com.example.spring_security.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -49,4 +49,3 @@ public class SecureUser implements UserDetails {
         return true;
     }
 }
-*/
