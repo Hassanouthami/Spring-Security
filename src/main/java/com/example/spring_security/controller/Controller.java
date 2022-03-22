@@ -6,13 +6,21 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @RestController
 public class Controller {
     @GetMapping("/hello")
-    @Async
     public String hello(){
-        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(authentication.getName());
-        return "hello world !"+authentication.getName();
+        Runnable runnable=()-> {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            System.out.println(authentication.getName());
+        };
+        ExecutorService service= Executors.newSingleThreadExecutor();
+        service.submit(runnable);
+        service.shutdown();
+        return "hello world !";
     }
 }

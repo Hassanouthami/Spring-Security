@@ -1,6 +1,6 @@
 package com.example.spring_security.config;
 
-import com.example.spring_security.security.authentication.UsernamePasswordAuthentication;
+
 import com.example.spring_security.security.filter.TokenAuthenticationFilter;
 import com.example.spring_security.security.filter.UsernamePasswordAuthFilter;
 import com.example.spring_security.security.provider.OtpAuthenticationProvider;
@@ -23,7 +23,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
-@EnableAsync
 public class ProjectConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -63,11 +62,11 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Bean
+    /*@Bean
     public InitializingBean initializingBean(){
         return ()->{
             SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
         };
-    }
+    }*/
 
 }
